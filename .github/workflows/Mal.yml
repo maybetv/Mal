@@ -2,22 +2,22 @@ name: Auto Update MAL Streams
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # ഓരോ 4 മണിക്കൂറിലും തനിയെ റൺ ആകുന്നു
-  workflow_dispatch:        # Actions ടാബിൽ കയറി നേരിട്ട് റൺ ചെയ്യാൻ
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write      # ഫയലുകൾ പുഷ് ചെയ്യാനുള്ള അനുമതി
+      contents: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: setup-python@v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
